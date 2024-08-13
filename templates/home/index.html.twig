@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue - Green Goodies
+{% endblock %}
+
+{% block body %}
+	<main>
+		<section class="bienvenue-content">
+			<div class="left-bienvenue">
+				<div class="left-bienvenue-content">
+					<h1>Bienvenue</h1>
+					<p>Découvrez notre univers de produits durables et éthiques pour une consommation responsable</p>
+					<p>Retrouvez des articles d’hygiène & beauté, des accessoires & boissons et du prêt à porter</p>
+				</div>
+			</div>
+			<div class="right-bienvenue">
+				<img src="{{ asset('images/accueil.jpeg') }}" alt="Image de bienvenue">
+			</div>
+		</section>
+		<section class="nos-produits">
+			<div class="nos-produits-title">
+				<h3>Nos produits</h3>
+			</div>
+			<ul>
+				<li>
+					<img src="" alt="">
+					<h4></h4>
+					<div class="description"></div>
+					<div class="price"></div>
+					<a href="" class="check-product"></a>
+				</li>
+			</ul>
+		</section>
+	</main>
+{% endblock %}
