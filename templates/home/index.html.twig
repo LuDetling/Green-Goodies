@@ -18,18 +18,45 @@
 			</div>
 		</section>
 		<section class="nos-produits">
-			<div class="nos-produits-title">
-				<h3>Nos produits</h3>
-			</div>
+			<h3>NOS PRODUITS</h3>
 			<ul>
-				<li>
-					<img src="" alt="">
-					<h4></h4>
-					<div class="description"></div>
-					<div class="price"></div>
-					<a href="" class="check-product"></a>
-				</li>
+				{% for product in products %}
+					<li>
+						<img src="{{ asset(product.image) }}" alt="{{product.title}}">
+						<h4>{{ product.title }}</h4>
+						<div class="description">{{ product.description }}</div>
+						<div class="price">{{ product.price|number_format(2, ',') }}€</div>
+						<a href="#" class="check-product">Voir le produit</a>
+					</li>
+				{% endfor %}
 			</ul>
+		</section>
+		<section class="conviction">
+			<div class="big beige">
+				<div class="content-big">
+					<h3>NOTRE CONVICTION</h3>
+					<p>Chez GreenGoodies, nous croyons en un monde où le commerce peut être synonyme de bien-être pour la planète et ses
+					<br>habitants. Notre mission est de vous proposer une sélection rigoureuse de produits qui allient qualité, durabilité et éthique</p>
+				</div>
+			</div>
+			<div class="short">
+				<img src="{{ asset("images/conviction.jpeg") }}" alt="Image de notre conviction">
+			</div>
+		</section>
+		<section class="valeur">
+			<div class="short">
+				<img src="{{ asset("images/valeurs.jpeg") }}" alt="Image de notre conviction">
+			</div>
+			<div class="big apple">
+				<div class="content-big">
+
+					<h3>NOS VALEURS</h3>
+					<p>Durabilité : Nous sélectionnons soigneusement des produits qui <br>respectent l'environnement et favorisent la durabilité.
+					<br>Éthique : Nous nous engageons à travailler avec des partenaires et des <br>fournisseurs qui partagent nos valeurs éthiques.
+					<br>Écologie : Nous encourageons des pratiques respectueuses de <br>l'écosystème et privilégions les matériaux écologiques.</p>
+				</div>
+
+			</div>
 		</section>
 	</main>
 {% endblock %}

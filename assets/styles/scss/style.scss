@@ -1,0 +1,12 @@
+@import "color";
+@import "font";
+@import "header";
+@import "footer";
+@import "home";
+
+body {
+    color: $primary;
+    background-color: #fffdf7;
+    margin: 0;
+    font-family: 'Inter' ,Arial, Helvetica, sans-serif;
+}
