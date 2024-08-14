@@ -22,7 +22,7 @@ class ProductRepository extends ServiceEntityRepository
 
     public function findAllDesc(): array
     {
-        return $this->findBy([], ['id' => 'DESC']);
+        return $this->findBy([], ['id' => 'DESC'], 9);
     }
 
     //    public function findByExampleField($value): array

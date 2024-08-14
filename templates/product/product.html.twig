@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{product.title}}
+{% endblock %}
+
+{% block body %}
+	<main class="content-product">
+
+		<img src="{{asset(product.image)}}" alt="{{product.title}}">
+		<div class="right-product">
+			<h1>{{ product.title }}</h1>
+			<div class="price-product">{{ product.price }}</div>
+			<div class="label-description">Description</div>
+			<p class="description">{{ product.description }}</p>
+			<button class="add">Ajouter au pannier</button>
+		</div>
+	</main>
+{% endblock %}
