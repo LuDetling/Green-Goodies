@@ -2,36 +2,44 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 221px;
+
     img {
         display: block;
         width: 50%;
         max-height: 686px;
     }
+
     .right-product {
         width: 50%;
+
         .right-product-content {
             display: flex;
             flex-direction: column;
             height: 100%;
             padding: 0 120px;
+
             h1 {
                 font-family: "Inter Medium";
                 font-size: 20px;
                 margin: 87px 0 24px;
                 font-weight: 500;
             }
+
             .price-product {
                 font-family: "Inter Light";
                 font-size: 30px;
                 margin-bottom: 50px;
             }
+
             .label-description {
                 font-size: 10px;
                 color: $lightgrey;
             }
+
             .description {
                 font-size: 14px;
             }
+
             .add {
                 margin-top: auto;
             }
@@ -41,25 +49,31 @@
 
 .log {
     display: flex;
+
     .left-log {
         width: 50%;
+
         img {
             width: 100%;
             display: block;
         }
     }
+
     .right-log {
         width: 50%;
+
         .right-log-content {
             padding: 0 127px 0 100px;
             max-width: 479px;
             margin: auto;
+
             h1 {
                 margin: 80px 0 41px;
                 font-size: 20px;
                 font-weight: "Inter Medium";
                 font-weight: 500;
             }
+
             form {
                 label {
                     display: block;
@@ -67,6 +81,7 @@
                     font-size: 14px;
                     margin-bottom: 10px;
                 }
+
                 input {
                     width: calc(100% - 2rem);
                     border: 1px solid $primary;
@@ -75,21 +90,25 @@
                     background-color: $beige;
                     padding: 0 1rem;
                 }
+
                 .agree-content {
                     display: flex;
                     align-items: center;
                     column-gap: 7px;
                     margin-bottom: 30px;
+
                     #agreeTerms {
                         width: 19px;
                         height: 19px;
                         margin: 0;
                     }
+
                     label {
                         margin: 0;
                     }
                 }
             }
+
             .not-log {
                 text-decoration: underline;
                 color: $lightgrey;
@@ -98,6 +117,51 @@
                 text-align: center;
                 display: block;
             }
+        }
+    }
+}
+
+.shopping {
+    background-color: #f7f1ec;
+    padding: 102px 0 146px;
+
+    h1 {
+        text-align: center;
+        font-size: 20px;
+        font-family: 'Inter Medium';
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    .center-shopping {
+        max-width: 604px;
+        margin: auto;
+
+        .content-total-shopping {
+            padding: 20px 38px;
+            background-color: #FFFDF7;
+            text-align: right;
+
+            .total {
+                font-family: 'Inter Medium';
+                font-weight: 500;
+                font-size: 14px;
+                margin-bottom: 6px;
+
+                .total-price {
+                    font-size: 20px;
+                }
+            }
+
+            .livraison {
+                font-size: 12px;
+                color: $lightgrey;
+            }
+        }
+
+        .btn-darkgrey {
+            margin: auto;
+            margin-top: 29px;
         }
     }
 }

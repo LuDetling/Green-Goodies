@@ -1,20 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Hello UserController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello ! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>E:/wamp64/www/Green-Goodies/src/Controller/UserController.php</code></li>
-        <li>Your template at <code>E:/wamp64/www/Green-Goodies/templates/user/index.html.twig</code></li>
-    </ul>
-</div>
+	<main class="shopping">
+		<div class="center-shopping">
+			<h1>Mon panier</h1>
+			{% if shoppings is defined %}
+				<a href="{{path('app_remove_shopping')}}">x Vider le panier</a>
+				{% for product in shoppings %}
+					<div class="shopping-card">
+						<img src="{{asset(product.image)}}" alt="{{product.name}}">
+						<div class="right-shopping-card">
+							<h2>{{ product.name }}</h2>
+							<div class="quantity">{{ product.quantity }}</div>
+							<div class="price">{{ product.price }}</div>
+						</div>
+					</div>
+				{% endfor %}
+			{% endif %}
+			<div class="content-total-shopping">
+				<div class="total">Total panier :
+					<span class="total-price">
+						{% if shoppings is defined %}
+							{{shoppings.totalprice}}€
+						{% else %}
+							0,00€
+						{% endif %}
+					</span>
+				</div>
+				<div class="livraison">Frais de livraison : Offert</div>
+			</div>
+			<a href="#" class="btn-darkgrey">Valider la commande</a>
+		</div>
+	</main>
 {% endblock %}
