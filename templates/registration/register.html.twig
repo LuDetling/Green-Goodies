@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	<main class="log">
+		<div class="left-log">
+			<img src="{{ asset("images/sign.jpeg") }}" alt="Image de connexion">
+		</div>
+		<div class="right-log">
+			<div class="right-log-content">
+				<h1>Inscription</h1>
+				{{ form_errors(registrationForm) }}
+				{{ form_start(registrationForm) }}
+				{{ form_row(registrationForm.lastname) }}
+				{{ form_row(registrationForm.firstname) }}
+				{{ form_row(registrationForm.email) }}
+				{{ form_row(registrationForm.password) }}
+				<div class="agree-content">
+					<input type="checkbox" id="agreeTerms" name="{{ field_name(registrationForm.agreeTerms) }}" value="{{ field_value(registrationForm.agreeTerms) }}" placeholder="{{ field_label(registrationForm.agreeTerms) }}" required="required">
+					<label for="agreeTerms" class="required">J’accepte les CGU de GreenGoodies</label>
+				</div>
+
+				<button type="submit" class="btn-darkgrey">S'inscrire</button>
+				{{ form_end(registrationForm) }}
+				<a href="{{path("app_login")}}" class="not-log">Déjà un compte ? Se connecter</a>
+			</div>
+		</div>
+	</main>
+{% endblock %}

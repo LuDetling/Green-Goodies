@@ -15,42 +15,45 @@ class Product
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $description = null;
+    private ?string $shortDescription = null;
 
     #[ORM\Column]
     private ?float $price = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $image = null;
+    private ?string $picture = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $fullDescription = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getName(): ?string
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function setTitle(string $title): static
+    public function setName(string $name): static
     {
-        $this->title = $title;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getShortDescription(): ?string
     {
-        return $this->description;
+        return $this->shortDescription;
     }
 
-    public function setDescription(string $description): static
+    public function setShortDescription(string $shortDescription): static
     {
-        $this->description = $description;
+        $this->shortDescription = $shortDescription;
 
         return $this;
     }
@@ -67,14 +70,26 @@ class Product
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getPicture(): ?string
     {
-        return $this->image;
+        return $this->picture;
     }
 
-    public function setImage(string $image): static
+    public function setPicture(string $picture): static
     {
-        $this->image = $image;
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getFullDescription(): ?string
+    {
+        return $this->fullDescription;
+    }
+
+    public function setFullDescription(string $fullDescription): static
+    {
+        $this->fullDescription = $fullDescription;
 
         return $this;
     }

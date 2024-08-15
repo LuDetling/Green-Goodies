@@ -22,9 +22,9 @@
 			<ul>
 				{% for product in products %}
 					<li>
-						<img src="{{ asset(product.image) }}" alt="{{product.title}}">
-						<h4>{{ product.title }}</h4>
-						<div class="description">{{ product.description }}</div>
+						<img src="{{ asset(product.picture) }}" alt="{{product.name}}">
+						<h4>{{ product.name }}</h4>
+						<div class="description">{{ product.shortDescription }}</div>
 						<div class="price">{{ product.price|number_format(2, ',') }}€</div>
 						<a href="/product/{{product.id}}" class="check-product">Voir le produit</a>
 					</li>

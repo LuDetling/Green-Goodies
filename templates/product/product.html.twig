@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	{{product.title}}
+	{{product.name}}
 {% endblock %}
 
 {% block body %}
 	<main class="content-product">
 
-		<img src="{{asset(product.image)}}" alt="{{product.title}}">
+		<img src="{{asset(product.picture)}}" alt="{{product.name}}">
 		<div class="right-product">
-			<h1>{{ product.title }}</h1>
-			<div class="price-product">{{ product.price }}</div>
-			<div class="label-description">Description</div>
-			<p class="description">{{ product.description }}</p>
-			<button class="add">Ajouter au pannier</button>
+			<div class="right-product-content">
+				<h1>{{ product.name }}</h1>
+				<div class="price-product">{{ product.price|number_format(2, ',') }}€</div>
+				<div class="label-description">Description</div>
+				<p class="description">{{ product.fullDescription }}</p>
+				<button class="add btn-darkgrey">Ajouter au pannier</button>
+			</div>
 		</div>
 	</main>
 {% endblock %}

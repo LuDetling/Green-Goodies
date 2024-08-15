@@ -92,6 +92,7 @@ footer div {
   font-family: "Inter Medium";
   font-size: 4rem;
   margin-bottom: 38px;
+  font-weight: 500;
 }
 .bienvenue-content .left-bienvenue .left-bienvenue-content p {
   font-family: "Inter Light";
@@ -108,6 +109,7 @@ footer div {
 
 .nos-produits h3 {
   font-family: "Inter Medium";
+  font-weight: 500;
   font-size: 14px;
   padding: 37px 100px;
 }
@@ -184,6 +186,7 @@ footer div {
   font-family: "Inter Medium";
   font-size: 20px;
   margin: 0 0 10px;
+  font-weight: 500;
 }
 .conviction .big .content-big p,
 .valeur .big .content-big p {
@@ -203,11 +206,129 @@ footer div {
   object-fit: cover;
 }
 
+.content-product {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 221px;
+}
+.content-product img {
+  display: block;
+  width: 50%;
+  max-height: 686px;
+}
+.content-product .right-product {
+  width: 50%;
+}
+.content-product .right-product .right-product-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 120px;
+}
+.content-product .right-product .right-product-content h1 {
+  font-family: "Inter Medium";
+  font-size: 20px;
+  margin: 87px 0 24px;
+  font-weight: 500;
+}
+.content-product .right-product .right-product-content .price-product {
+  font-family: "Inter Light";
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+.content-product .right-product .right-product-content .label-description {
+  font-size: 10px;
+  color: #666666;
+}
+.content-product .right-product .right-product-content .description {
+  font-size: 14px;
+}
+.content-product .right-product .right-product-content .add {
+  margin-top: auto;
+}
+
+.log {
+  display: flex;
+}
+.log .left-log {
+  width: 50%;
+}
+.log .left-log img {
+  width: 100%;
+  display: block;
+}
+.log .right-log {
+  width: 50%;
+}
+.log .right-log .right-log-content {
+  padding: 0 127px 0 100px;
+  max-width: 479px;
+  margin: auto;
+}
+.log .right-log .right-log-content h1 {
+  margin: 80px 0 41px;
+  font-size: 20px;
+  font-weight: "Inter Medium";
+  font-weight: 500;
+}
+.log .right-log .right-log-content form label {
+  display: block;
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.log .right-log .right-log-content form input {
+  width: calc(100% - 2rem);
+  border: 1px solid #333333;
+  height: 67px;
+  margin-bottom: 30px;
+  background-color: #fffdf7;
+  padding: 0 1rem;
+}
+.log .right-log .right-log-content form .agree-content {
+  display: flex;
+  align-items: center;
+  column-gap: 7px;
+  margin-bottom: 30px;
+}
+.log .right-log .right-log-content form .agree-content #agreeTerms {
+  width: 19px;
+  height: 19px;
+  margin: 0;
+}
+.log .right-log .right-log-content form .agree-content label {
+  margin: 0;
+}
+.log .right-log .right-log-content .not-log {
+  text-decoration: underline;
+  color: #666666;
+  font-size: 14px;
+  margin-top: 30px;
+  text-align: center;
+  display: block;
+}
+
 body {
   color: #333333;
   background-color: #fffdf7;
   margin: 0;
   font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+.btn-darkgrey {
+  cursor: pointer;
+  background-color: #565656;
+  color: #ffffff;
+  font-size: 14px;
+  transition: 0.3s;
+  max-width: 479px;
+  width: 100%;
+  height: 77px;
+  border: none;
+  padding: 0;
+}
+.btn-darkgrey:hover {
+  background-color: black;
 }
 
 /*# sourceMappingURL=style.css.map */
