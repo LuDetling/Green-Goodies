@@ -16,4 +16,11 @@ class ProductController extends AbstractController
             'product' => $product,
         ]);
     }
+
+    #[Route('/shopping', name: 'app_shopping')]
+    public function myShopping (): Response
+    {
+        // récupérer dans le storage les items qu'ont a ajouté dedans en forme de tableau
+        return $this->render('product/shopping.html.twig');
+    }
 }
