@@ -333,7 +333,7 @@ footer div {
   color: #666666;
   font-size: 14px;
   margin-bottom: 17px;
-  display: block;
+  display: inline-block;
 }
 .shopping .clear:hover,
 .profile .clear:hover {
