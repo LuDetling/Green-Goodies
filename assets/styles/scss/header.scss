@@ -1,4 +1,8 @@
 header {
+    position: sticky;
+    top: 0;
+    background-color: $beige;
+    border-bottom: 1px solid #f6f5f0;
     .content-header {
         display: flex;
         justify-content: space-between;

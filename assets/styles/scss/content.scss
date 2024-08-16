@@ -121,29 +121,74 @@
     }
 }
 
-.shopping {
+.shopping,
+.profile {
     background-color: #f7f1ec;
     padding: 102px 0 146px;
 
     h1 {
         text-align: center;
         font-size: 20px;
-        font-family: 'Inter Medium';
+        font-family: "Inter Medium";
         font-weight: 500;
         margin-bottom: 1rem;
     }
 
-    .center-shopping {
+    .clear {
+        text-decoration: none;
+        color: $lightgrey;
+        font-size: 14px;
+        margin-bottom: 17px;
+        display: block;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .shopping-card {
+        background-color: $beige;
+        padding: 43px;
+        display: flex;
+        align-items: center;
+        column-gap: 55px;
+        flex-wrap: wrap;
+        margin-bottom: 5px;
+        img {
+            width: 142px;
+            height: 132px;
+            object-fit: cover;
+            display: block;
+        }
+        .right-shopping-card {
+            h2 {
+                font-weight: 600;
+                color: black;
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+            .quantity {
+                color: $lightgrey;
+                font-size: 14px;
+                margin-bottom: 13px;
+            }
+            .price {
+                font-weight: 500;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .center-content {
         max-width: 604px;
         margin: auto;
 
         .content-total-shopping {
             padding: 20px 38px;
-            background-color: #FFFDF7;
+            background-color: #fffdf7;
             text-align: right;
 
             .total {
-                font-family: 'Inter Medium';
+                font-family: "Inter Medium";
                 font-weight: 500;
                 font-size: 14px;
                 margin-bottom: 6px;
@@ -162,6 +207,29 @@
         .btn-darkgrey {
             margin: auto;
             margin-top: 29px;
+        }
+    }
+}
+
+.profile {
+    background-color: #f7f1ec;
+    .content-api,
+    .content-delete-account,
+    .content-orders {
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+        padding: 60px;
+        background-color: $beige;
+        h2 {
+            color: black;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            margin-top: 0;
+        }
+        .btn-darkgrey {
+            margin-top: 0;
         }
     }
 }

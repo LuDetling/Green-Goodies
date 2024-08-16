@@ -5,17 +5,18 @@
 
 {% block body %}
 	<main class="shopping">
-		<div class="center-shopping">
+		<div class="center-content">
 			<h1>Mon panier</h1>
-			{% if shoppings is defined %}
-				<a href="{{path('app_remove_shopping')}}">x Vider le panier</a>
-				{% for product in shoppings %}
+			{% if products|length > 0 %}
+				<a href="{{path('app_removeCard')}}" class="clear">x Vider le panier</a>
+				{% for item in products %}
 					<div class="shopping-card">
-						<img src="{{asset(product.image)}}" alt="{{product.name}}">
+						<img src="{{asset(item.product.picture)}}" alt="{{item.product.name}}">
 						<div class="right-shopping-card">
-							<h2>{{ product.name }}</h2>
-							<div class="quantity">{{ product.quantity }}</div>
-							<div class="price">{{ product.price }}</div>
+							<h2>{{ item.product.name }}</h2>
+							<div class="quantity">Quantité :
+								{{ item.quantity }}</div>
+							<div class="price">{{ item.product.price|number_format(2, ',') }}€</div>
 						</div>
 					</div>
 				{% endfor %}
@@ -23,8 +24,8 @@
 			<div class="content-total-shopping">
 				<div class="total">Total panier :
 					<span class="total-price">
-						{% if shoppings is defined %}
-							{{shoppings.totalprice}}€
+						{% if products|length > 0 %}
+							{{total|number_format(2, ',')}}€
 						{% else %}
 							0,00€
 						{% endif %}

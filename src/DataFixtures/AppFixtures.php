@@ -16,7 +16,7 @@ class AppFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
         $product1 = new Product();
-        $product1->setPicture("images/product1.jpeg")
+        $product1->setPicture("images/product1.webp")
             ->setName("Savon Bio")
             ->setShortDescription("Thé, Orange & Girofle")
             ->setFullDescription("Full description")
@@ -24,7 +24,7 @@ class AppFixtures extends Fixture
         $manager->persist($product1);
 
         $product2 = new Product();
-        $product2->setPicture("images/product2.jpeg")
+        $product2->setPicture("images/product2.webp")
             ->setName("Nécessaire, déodorant Bio")
             ->setShortDescription("50ml déodorant à l’eucalyptus")
             ->setFullDescription("Full description")
@@ -32,7 +32,7 @@ class AppFixtures extends Fixture
         $manager->persist($product2);
 
         $product3 = new Product();
-        $product3->setPicture("images/product3.jpeg")
+        $product3->setPicture("images/product3.webp")
             ->setName("Kit couvert en bois")
             ->setShortDescription("Revêtement Bio en olivier & sac de transport")
             ->setFullDescription("Full description")
@@ -40,7 +40,7 @@ class AppFixtures extends Fixture
         $manager->persist($product3);
 
         $product4 = new Product();
-        $product4->setPicture("images/product4.jpeg")
+        $product4->setPicture("images/product4.webp")
             ->setName("Brosse à dent")
             ->setShortDescription("Bois de hêtre rouge issu de forêts gérées durablement")
             ->setFullDescription("Full description")
@@ -48,7 +48,7 @@ class AppFixtures extends Fixture
         $manager->persist($product4);
 
         $product5 = new Product();
-        $product5->setPicture("images/product5.jpeg")
+        $product5->setPicture("images/product5.webp")
             ->setName("Bougie Lavande & Patchouli")
             ->setShortDescription("Cire naturelle")
             ->setFullDescription("Full description")
@@ -56,7 +56,7 @@ class AppFixtures extends Fixture
         $manager->persist($product5);
 
         $product6 = new Product();
-        $product6->setPicture("images/product6.jpeg")
+        $product6->setPicture("images/product6.webp")
             ->setName("Disques Démaquillants x3")
             ->setShortDescription("Solution efficace pour vous démaquiller en douceur ")
             ->setFullDescription("Full description")
@@ -64,7 +64,7 @@ class AppFixtures extends Fixture
         $manager->persist($product6);
 
         $product7 = new Product();
-        $product7->setPicture("images/product7.jpeg")
+        $product7->setPicture("images/product7.webp")
             ->setName("Gourde en bois")
             ->setShortDescription("50cl, bois d’olivier")
             ->setFullDescription("Full description")
@@ -72,7 +72,7 @@ class AppFixtures extends Fixture
         $manager->persist($product7);
 
         $product8 = new Product();
-        $product8->setPicture("images/product8.jpeg")
+        $product8->setPicture("images/product8.webp")
             ->setName("Shot Tropical")
             ->setShortDescription("Fruits frais, pressés à froid")
             ->setFullDescription("Full description")
@@ -80,7 +80,7 @@ class AppFixtures extends Fixture
         $manager->persist($product8);
 
         $product9 = new Product();
-        $product9->setPicture("images/product9.jpeg")
+        $product9->setPicture("images/product9.webp")
             ->setName("Kit d'hygiène recyclable ")
             ->setShortDescription("Pour une salle de bain éco-friendly")
             ->setFullDescription("Full description")

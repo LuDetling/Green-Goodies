@@ -18,6 +18,12 @@
   font-family: "Playfair Medium";
   src: url("../fonts/Playfair_Display/static/PlayfairDisplay-Medium.ttf");
 }
+header {
+  position: sticky;
+  top: 0;
+  background-color: #fffdf7;
+  border-bottom: 1px solid #f6f5f0;
+}
 header .content-header {
   display: flex;
   justify-content: space-between;
@@ -308,49 +314,141 @@ footer div {
   display: block;
 }
 
-.shopping {
+.shopping,
+.profile {
   background-color: #f7f1ec;
   padding: 102px 0 146px;
 }
-.shopping h1 {
+.shopping h1,
+.profile h1 {
   text-align: center;
   font-size: 20px;
   font-family: "Inter Medium";
   font-weight: 500;
   margin-bottom: 1rem;
 }
-.shopping .center-shopping {
+.shopping .clear,
+.profile .clear {
+  text-decoration: none;
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 17px;
+  display: block;
+}
+.shopping .clear:hover,
+.profile .clear:hover {
+  text-decoration: underline;
+}
+.shopping .shopping-card,
+.profile .shopping-card {
+  background-color: #fffdf7;
+  padding: 43px;
+  display: flex;
+  align-items: center;
+  column-gap: 55px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+.shopping .shopping-card img,
+.profile .shopping-card img {
+  width: 142px;
+  height: 132px;
+  object-fit: cover;
+  display: block;
+}
+.shopping .shopping-card .right-shopping-card h2,
+.profile .shopping-card .right-shopping-card h2 {
+  font-weight: 600;
+  color: black;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.shopping .shopping-card .right-shopping-card .quantity,
+.profile .shopping-card .right-shopping-card .quantity {
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 13px;
+}
+.shopping .shopping-card .right-shopping-card .price,
+.profile .shopping-card .right-shopping-card .price {
+  font-weight: 500;
+  font-size: 18px;
+}
+.shopping .center-content,
+.profile .center-content {
   max-width: 604px;
   margin: auto;
 }
-.shopping .center-shopping .content-total-shopping {
+.shopping .center-content .content-total-shopping,
+.profile .center-content .content-total-shopping {
   padding: 20px 38px;
-  background-color: #FFFDF7;
+  background-color: #fffdf7;
   text-align: right;
 }
-.shopping .center-shopping .content-total-shopping .total {
+.shopping .center-content .content-total-shopping .total,
+.profile .center-content .content-total-shopping .total {
   font-family: "Inter Medium";
   font-weight: 500;
   font-size: 14px;
   margin-bottom: 6px;
 }
-.shopping .center-shopping .content-total-shopping .total .total-price {
+.shopping .center-content .content-total-shopping .total .total-price,
+.profile .center-content .content-total-shopping .total .total-price {
   font-size: 20px;
 }
-.shopping .center-shopping .content-total-shopping .livraison {
+.shopping .center-content .content-total-shopping .livraison,
+.profile .center-content .content-total-shopping .livraison {
   font-size: 12px;
   color: #666666;
 }
-.shopping .center-shopping .btn-darkgrey {
+.shopping .center-content .btn-darkgrey,
+.profile .center-content .btn-darkgrey {
   margin: auto;
   margin-top: 29px;
+}
+
+.profile {
+  background-color: #f7f1ec;
+}
+.profile .content-api,
+.profile .content-delete-account,
+.profile .content-orders {
+  padding: 60px;
+  background-color: #fffdf7;
+}
+.profile .content-api:not(:last-child),
+.profile .content-delete-account:not(:last-child),
+.profile .content-orders:not(:last-child) {
+  margin-bottom: 15px;
+}
+.profile .content-api h2,
+.profile .content-delete-account h2,
+.profile .content-orders h2 {
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+.profile .content-api .btn-darkgrey,
+.profile .content-delete-account .btn-darkgrey,
+.profile .content-orders .btn-darkgrey {
+  margin-top: 0;
+}
+
+html {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
   color: #333333;
   background-color: #fffdf7;
   margin: 0;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+.ancre {
+  scroll-margin-top: 116px;
 }
 
 .btn-darkgrey {

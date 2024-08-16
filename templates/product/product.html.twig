@@ -6,7 +6,6 @@
 
 {% block body %}
 	<main class="content-product">
-
 		<img src="{{asset(product.picture)}}" alt="{{product.name}}">
 		<div class="right-product">
 			<div class="right-product-content">
@@ -14,7 +13,7 @@
 				<div class="price-product">{{ product.price|number_format(2, ',') }}€</div>
 				<div class="label-description">Description</div>
 				<p class="description">{{ product.fullDescription }}</p>
-				<button class="add btn-darkgrey">Ajouter au pannier</button>
+				<a href="{{ path("app_addToCard", { id: product.id}) }}" class="add btn-darkgrey">Ajouter au pannier</a>
 			</div>
 		</div>
 	</main>

@@ -5,11 +5,19 @@
 @import "home";
 @import "content";
 
+html {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
 body {
     color: $primary;
     background-color: $beige;
     margin: 0;
-    font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+.ancre {
+    scroll-margin-top: 116px;
 }
 
 .btn-darkgrey {

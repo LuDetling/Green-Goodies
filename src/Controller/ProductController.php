@@ -3,12 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class ProductController extends AbstractController
 {
+    public function __construct(private ProductRepository $productRepository) {}
+
     #[Route('/product/{product}', name: 'app_product')]
     public function index(Product $product): Response
     {
@@ -18,9 +22,59 @@ class ProductController extends AbstractController
     }
 
     #[Route('/shopping', name: 'app_shopping')]
-    public function myShopping (): Response
+    public function myShopping(Request $request): Response
     {
         // récupérer dans le storage les items qu'ont a ajouté dedans en forme de tableau
-        return $this->render('product/shopping.html.twig');
+        $session = $request->getSession();
+        $cards = $session->get('cards');
+        // dd($cards);
+        $cardsData = [];
+        $total = 0;
+
+        if (!empty($cards)) {
+            foreach ($cards as $id => $quantity) {
+                $cardsData[] = [
+                    'product' => $this->productRepository->find($id),
+                    'quantity' => $quantity
+                ];
+            }
+
+            foreach ($cardsData as $item) {
+                $totalItem = $item['product']->getPrice() * $item['quantity'];
+                $total += $totalItem;
+            }
+        }
+
+        // return $this->render('product/shopping.html.twig', []);
+        return $this->render('product/shopping.html.twig', [
+            'products' => $cardsData,
+            'total' => $total
+        ]);
+    }
+
+    #[Route('/addTocard/{id}', name: 'app_addToCard')]
+    public function addToCard(Request $request, int $id)
+    {
+        // si c'est le meme id on ajoute quantity + 1
+        $session = $request->getSession();
+        $cards = $session->get('cards', []);
+
+        if (!empty($cards[$id])) {
+            $cards[$id]++;
+        } else {
+            $cards[$id] = 1;
+        }
+
+        $session->set('cards', $cards);
+
+        return $this->redirectToRoute('app_product', ['product' => $id]);
+    }
+
+    #[Route('/removeCard', name: 'app_removeCard')]
+    public function removeCard(Request $request)
+    {
+        $session = $request->getSession();
+        $session->remove('cards');
+        return $this->redirectToRoute('app_shopping');
     }
 }
