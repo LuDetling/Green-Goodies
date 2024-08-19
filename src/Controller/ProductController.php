@@ -2,16 +2,21 @@
 
 namespace App\Controller;
 
+use App\Entity\Order;
 use App\Entity\Product;
+use App\Form\OrderFormType;
 use App\Repository\ProductRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+use function Symfony\Component\Clock\now;
+
 class ProductController extends AbstractController
 {
-    public function __construct(private ProductRepository $productRepository) {}
+    public function __construct(private ProductRepository $productRepository, private OrderFormType $orderForm) {}
 
     #[Route('/product/{product}', name: 'app_product')]
     public function index(Product $product): Response
@@ -43,12 +48,19 @@ class ProductController extends AbstractController
                 $totalItem = $item['product']->getPrice() * $item['quantity'];
                 $total += $totalItem;
             }
+
+            $order = new Order();
+            $order->setDate(new DateTime())
+                ->setPrice($totalItem)
+                ->setUserId($this->getUser());
+            $orderForm = $this->createForm(OrderFormType::class, $order);
         }
 
         // return $this->render('product/shopping.html.twig', []);
         return $this->render('product/shopping.html.twig', [
             'products' => $cardsData,
-            'total' => $total
+            'total' => $total,
+            'orderForm' => $orderForm
         ]);
     }
 
