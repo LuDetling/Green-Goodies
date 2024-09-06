@@ -32,7 +32,6 @@ class ProductController extends AbstractController
         // récupérer dans le storage les items qu'ont a ajouté dedans en forme de tableau
         $session = $request->getSession();
         $cards = $session->get('cards');
-        // dd($cards);
         $cardsData = [];
         $total = 0;
 
@@ -60,7 +59,7 @@ class ProductController extends AbstractController
         return $this->render('product/shopping.html.twig', [
             'products' => $cardsData,
             'total' => $total,
-            'orderForm' => $orderForm
+            // 'orderForm' => $orderForm
         ]);
     }
 
