@@ -22,7 +22,7 @@ class Order
     private ?float $price = null;
 
     #[ORM\ManyToOne(inversedBy: 'orders')]
-    private ?User $userId = null;
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -40,7 +40,6 @@ class Order
 
         return $this;
     }
-
     public function getPrice(): ?float
     {
         return $this->price;
@@ -53,15 +52,21 @@ class Order
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getUser(): ?User
     {
-        return $this->userId;
+        return $this->user;
     }
 
-    public function setUserId(?User $userId): static
+    public function setUser(?User $user): static
     {
-        $this->userId = $userId;
+        $this->user = $user;
 
         return $this;
+    }
+
+    public function getDateFormated($date)
+    {
+        $dateFormated = $date->format('d/m/Y');
+        return $dateFormated;
     }
 }

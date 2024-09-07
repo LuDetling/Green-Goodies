@@ -33,11 +33,13 @@
 				</div>
 				<div class="livraison">Frais de livraison : Offert</div>
 			</div>
-			{# {{ form_start(orderForm) }}
-				{{form_row(orderForm.submit)}}
-			{{ form_end(orderForm) }} #}
-
-			{# <a href="{{path('app_order')}}" class="btn-darkgrey">Valider la commande</a> #}
+			{% if products|length > 0 %}
+				<form action="{{path('app_order', {'products': products, 'total': total})}}" method="POST">
+					{# <input type="hidden" name="products" value="{{ products|json_encode }}"> #}
+					<input type="hidden" name="total" value="{{ total }}">
+					<button type="submit" class="btn-darkgrey">Valider la commande</button>
+				</form>
+			{% endif %}
 		</div>
 	</main>
 {% endblock %}

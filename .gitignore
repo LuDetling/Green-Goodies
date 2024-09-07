@@ -28,3 +28,6 @@
 ###< package ###
 /node_modules/
 ### package >###
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###

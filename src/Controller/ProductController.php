@@ -4,13 +4,16 @@ namespace App\Controller;
 
 use App\Entity\Order;
 use App\Entity\Product;
+use App\Entity\User;
 use App\Form\OrderFormType;
 use App\Repository\ProductRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 use function Symfony\Component\Clock\now;
 
@@ -26,6 +29,7 @@ class ProductController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/shopping', name: 'app_shopping')]
     public function myShopping(Request $request): Response
     {
@@ -34,6 +38,7 @@ class ProductController extends AbstractController
         $cards = $session->get('cards');
         $cardsData = [];
         $total = 0;
+
 
         if (!empty($cards)) {
             foreach ($cards as $id => $quantity) {
@@ -47,12 +52,6 @@ class ProductController extends AbstractController
                 $totalItem = $item['product']->getPrice() * $item['quantity'];
                 $total += $totalItem;
             }
-
-            $order = new Order();
-            $order->setDate(new DateTime())
-                ->setPrice($totalItem)
-                ->setUserId($this->getUser());
-            $orderForm = $this->createForm(OrderFormType::class, $order);
         }
 
         // return $this->render('product/shopping.html.twig', []);
@@ -87,5 +86,21 @@ class ProductController extends AbstractController
         $session = $request->getSession();
         $session->remove('cards');
         return $this->redirectToRoute('app_shopping');
+    }
+
+    #[Route('/api/products', name: 'app_api_products', methods: ['GET'])]
+    public function apiProducts(): JsonResponse
+    {
+        /**@var User $user */
+        $user = $this->getUser();
+        $activeApi = $user->isActiveApi();
+        if (!$activeApi) {
+            return $this->json([
+                'message' => 'Votre api n\'est pas activé !'
+            ], Response::HTTP_UNAUTHORIZED);
+        }
+
+        $products = $this->productRepository->findAllDesc();
+        return $this->json($products);
     }
 }

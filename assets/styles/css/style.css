@@ -435,6 +435,31 @@ footer div {
 .profile .content-orders .btn-darkgrey {
   margin-top: 0;
 }
+.profile .content-orders table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.profile .content-orders table thead {
+  margin-bottom: 20px;
+}
+.profile .content-orders table thead th {
+  text-align: left;
+  font-size: 14px;
+  color: #666666;
+  font-weight: 400;
+}
+.profile .content-orders table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #cccccc;
+}
+.profile .content-orders table tbody td {
+  padding: 20px 0 30px;
+}
+.profile .content-orders table tbody td:first-child {
+  width: 168px;
+}
+.profile .content-orders table tbody td:last-child {
+  width: 1px;
+}
 
 html {
   font-family: "Inter", Arial, Helvetica, sans-serif;
