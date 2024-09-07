@@ -96,8 +96,8 @@ class ProductController extends AbstractController
         $activeApi = $user->isActiveApi();
         if (!$activeApi) {
             return $this->json([
-                'message' => 'Votre api n\'est pas activé !'
-            ], Response::HTTP_UNAUTHORIZED);
+                'message' => 'Accès API non activé'
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $products = $this->productRepository->findAllDesc();

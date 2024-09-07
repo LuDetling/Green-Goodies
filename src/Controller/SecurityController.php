@@ -33,23 +33,31 @@ class SecurityController extends AbstractController
         throw new \LogicException($this->redirectToRoute("app_home"));
     }
 
-    #[Route(path: '/api/login', name: 'app_api_login', methods: ['POST'])]
-    public function apiLogin(#[CurrentUser] ?User $user, Request $request, AuthenticationUtils $authenticationUtils): Response
-    {
+    // #[Route(path: '/api/login', name: 'app_api_login', methods: ['POST'])]
+    // public function apiLogin(#[CurrentUser] ?User $user, Request $request, AuthenticationUtils $authenticationUtils): Response
+    // {
 
-        if (null === $user) {
-            return $this->json([
-                'message' => 'missing credentials'
-            ], Response::HTTP_UNAUTHORIZED);
-        }
 
-        $token = $request->request->get("token");
+    //     if (null === $user) {
+    //         return $this->json([
+    //             'message' => 'Identifiants incorrects'
+    //         ], Response::HTTP_UNAUTHORIZED);
+    //     }
+        
+    //     $activeApi = $user->isActiveApi();
+    //     if (!$activeApi) {
+    //         return $this->json([
+    //             'message' => 'Accès API non activé'
+    //         ], Response::HTTP_FORBIDDEN);
+    //     }
 
-        return $this->json([
-            'message' => "Welcome to your new controller!",
-            'path' => 'src/controller/ApiLoginController.php',
-            'user' => $user->getUserIdentifier(),
-            'token' => $token
-        ]);
-    }
+    //     $token = $request->request->get("token");
+
+    //     return $this->json([
+    //         'message' => "Welcome to your new controller!",
+    //         'path' => 'src/controller/ApiLoginController.php',
+    //         'user' => $user->getUserIdentifier(),
+    //         'token' => $token
+    //     ]);
+    // }
 }
