@@ -19,7 +19,9 @@ use function Symfony\Component\Clock\now;
 
 class ProductController extends AbstractController
 {
-    public function __construct(private ProductRepository $productRepository, private OrderFormType $orderForm) {}
+    public function __construct(private ProductRepository $productRepository, private OrderFormType $orderForm)
+    {
+    }
 
     #[Route('/product/{product}', name: 'app_product')]
     public function index(Product $product): Response
@@ -36,50 +38,44 @@ class ProductController extends AbstractController
         // récupérer dans le storage les items qu'ont a ajouté dedans en forme de tableau
         $session = $request->getSession();
         $cards = $session->get('cards');
-        $cardsData = [];
         $total = 0;
+        $regroupedCards = [];
 
 
         if (!empty($cards)) {
-            foreach ($cards as $id => $quantity) {
-                $cardsData[] = [
-                    'product' => $this->productRepository->find($id),
-                    'quantity' => $quantity
-                ];
-            }
-
-            foreach ($cardsData as $item) {
-                $totalItem = $item['product']->getPrice() * $item['quantity'];
-                $total += $totalItem;
+            foreach ($cards as $card) {
+                $total += $card->getPrice();
+                $productId = $card->getId();
+                if (!isset($regroupedCards[$productId])) {
+                    $regroupedCards[$productId] = [
+                        'product' => $card,
+                        'quantity' => 0
+                    ];
+                }
+                $regroupedCards[$productId]['quantity']++;
             }
         }
-
-        // return $this->render('product/shopping.html.twig', []);
         return $this->render('product/shopping.html.twig', [
-            'products' => $cardsData,
+            'products' => $regroupedCards,
             'total' => $total,
-            // 'orderForm' => $orderForm
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/addTocard/{id}', name: 'app_addToCard')]
     public function addToCard(Request $request, int $id)
     {
-        // si c'est le meme id on ajoute quantity + 1
         $session = $request->getSession();
         $cards = $session->get('cards', []);
 
-        if (!empty($cards[$id])) {
-            $cards[$id]++;
-        } else {
-            $cards[$id] = 1;
-        }
-
-        $session->set('cards', $cards);
+        $product = $this->productRepository->find($id);
+        array_push($cards, $product);
+        $session->set("cards", $cards);
 
         return $this->redirectToRoute('app_product', ['product' => $id]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/removeCard', name: 'app_removeCard')]
     public function removeCard(Request $request)
     {

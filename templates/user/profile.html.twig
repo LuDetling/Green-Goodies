@@ -37,7 +37,9 @@
 				</form>
 			</div>
 			<div class="content-delete-account">
-				<a href="{{path('app_delete_account')}}" class="btn-darkgrey">Supprimer mon compte</a>
+				<a class="btn-darkgrey" href="{{ path("app_delete_account", {id: app.user.id}) }}">
+					Supprimer mon compte
+				</a>
 			</div>
 		</div>
 	</main>

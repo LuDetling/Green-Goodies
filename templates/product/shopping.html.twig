@@ -9,14 +9,14 @@
 			<h1>Mon panier</h1>
 			{% if products|length > 0 %}
 				<a href="{{path('app_removeCard')}}" class="clear">x Vider le panier</a>
-				{% for item in products %}
+				{% for product in products %}
 					<div class="shopping-card">
-						<img src="{{asset(item.product.picture)}}" alt="{{item.product.name}}">
+						<img src="{{asset(product.product.picture)}}" alt="{{product.product.name}}">
 						<div class="right-shopping-card">
-							<h2>{{ item.product.name }}</h2>
+							<h2>{{ product.product.name }}</h2>
 							<div class="quantity">Quantité :
-								{{ item.quantity }}</div>
-							<div class="price">{{ item.product.price|number_format(2, ',') }}€</div>
+								{{ product.quantity }} </div>
+							<div class="price">{{ product.product.price|number_format(2, ',') }}€</div>
 						</div>
 					</div>
 				{% endfor %}
@@ -34,8 +34,7 @@
 				<div class="livraison">Frais de livraison : Offert</div>
 			</div>
 			{% if products|length > 0 %}
-				<form action="{{path('app_order', {'products': products, 'total': total})}}" method="POST">
-					{# <input type="hidden" name="products" value="{{ products|json_encode }}"> #}
+				<form action="{{path('app_order', {'total': total})}}" method="POST">
 					<input type="hidden" name="total" value="{{ total }}">
 					<button type="submit" class="btn-darkgrey">Valider la commande</button>
 				</form>

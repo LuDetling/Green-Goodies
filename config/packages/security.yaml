@@ -36,6 +36,8 @@ security:
                 login_path: app_login
                 check_path: app_login
                 enable_csrf: true
+            # json_login: 
+            #     check_path: app_api_login
             logout:
                 path: app_logout
 
